@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PhD life simulator</title>
+
+        <!-- Alertify -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet"> 
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    <body> 
+        
+        <section class="container-fluid px-5 my-2">
+            <div class="row align-items-auto content">
+                <div class="col-9 text-center"><h1 class="font-weight-bolder">PhD Life Simulator</h1></div>
+                <audio id="music_list"></audio><div class="col-1 text-center"><button id="music" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 my-2"><i class="fas fa-volume-up" id="music-icon"></i> Music</button></div>
+                <div class="col-1 text-center"><button id="saveGame" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 my-2"><i class="far fa-save"></i> Save</button></div>
+                <div class="col-1 text-center"><button id="newGame" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 my-2"><i class="fas fa-redo"></i> New</button></div>
+        </section>
+
+        <section class="container-fluid px-5 white">
+            <div class="row align-items-center content">
+                <div class="col-4 px-2"><span class="font-weight-bolder">Money budget: </span><span id="budget">3000</span> zl</div>
+                <div class="col-4"><span class="font-weight-bolder">Salary: </span><span id="salary">3000</span> zl</div>
+                <div class="col-4">Week: <span id="week">1</span> - <span id="month">Januray</span> - <span id="year">1st Year</span> </div>
+        </section>
+
+        
+        <section class="container-fluid px-5 py-3">
+            <div class="row align-items-start content">
+                <div class="col-md-4">
+
+                <table class="table">
+                    <!-- <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead> -->
+                    <tbody>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top" class="work-toggle" data-container="body"  id="work"><i class="fas fa-pray px-2 d-none d-md-inline"></i>Work</th>
+                            <td ><span id="work-number">40</span> <span id="commute-number"> + 15 </span></td>
+                            <td><button type="button" class="btn btn-danger" id="work-less">-</button><button type="button" class="btn btn-success" id="work-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="extraWork-toggle" data-container="body"  id="extraWork"><img src='imgs/muslim.svg' height="32" class="px-2 d-none d-md-inline">Extra work</th>
+                            <td id="extraWork-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="extraWork-less">-</button><button type="button" class="btn btn-success" id="extraWork-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="sleep-toggle" data-container="body"  id="sleep"><i class="fas fa-bed px-2 d-none d-md-inline"></i>Sleep</th>
+                            <td id="sleep-number">56</td>
+                            <td><button type="button" class="btn btn-danger"  id="sleep-less">-</button><button type="button" class="btn btn-success" id="sleep-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="workOut-toggle" data-container="body"  id="workOut"><i class="fas fa-dumbbell px-2 d-none d-md-inline"></i>Work-out</th>
+                            <td id="workOut-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="workOut-less">-</button><button type="button" class="btn btn-success"id="workOut-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="hobby-toggle" data-container="body"  id="hobby"><i class="fas fa-palette px-2 d-none d-md-inline"></i>Having hobby</th>
+                            <td id="hobby-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="hobby-less">-</button><button type="button" class="btn btn-success"id="hobby-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="pizza-toggle" data-container="body"  id="pizza"><i class="fas fa-pizza-slice px-2 d-none d-md-inline"></i>Pizza with friends</th>
+                            <td id="pizza-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="pizza-less">-</button><button type="button" class="btn btn-success"id="pizza-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="drink-toggle"  data-container="body" id="drink"><i class="fas fa-glass-cheers px-2 d-none d-md-inline"></i>Drinks with friends</th>
+                            <td id="drink-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="drink-less">-</button><button type="button" class="btn btn-success" id="drink-more">+</button></div></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-toggle="tooltip" data-placement="top"  class="party-toggle"  data-container="body" id="party"><img src="imgs/fun.png" height="40" class="px-2 d-none d-md-inline">Going for party!!!</th>
+                            <td id="party-number">0</td>
+                            <td><button type="button" class="btn btn-danger" id="party-less">-</button><button type="button" class="btn btn-success" id="party-more">+</button></div></td>
+                        </tr>
+                    </tbody>
+                    
+                    <tfoot>
+                        <tr class="table-secondary">
+                        <th scope="row">Total hours</th>
+                        <td><span id="total-number">111</span>/168</td>
+                        <td><span  id="rest-number">57</span> left</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                    <div class="float-right" style="margin-top: 20px;"><button class="btn btn-success disabled" title="Reach 168 hours!" style=" font-size: 1.5rem;" id="newWeek">Next week</button></div>
+                </div>
+
+                <div class="col-md-6">
+                    <h5><i class="fas fa-flask"></i> Research:</h5>
+                    <div class="progress">
+                        <div class="progress-bar research" style="width: 0%"> 0/10</div>
+                    </div>
+                    <h5><i class="fas fa-users"></i> Social life:</h5>
+                    <div class="progress">
+                        <div class="progress-bar socialLife" style="width: 0%"> 0/10</div>
+                    </div>
+                    <h5><i class="fas fa-wine-bottle"></i> Alcoholism:</h5>
+                    <div class="progress">
+                        <div class="progress-bar alcoholism" style="width:0%"> 0/10</div>
+                    </div>
+                    <h5><i class="fas fa-battery-half"></i> Energy:</h5>
+                    <div class="progress">
+                        <div class="progress-bar energy" style="width:100%"> 10/10</div>
+                    </div>
+                    <h5><i class="fas fa-laugh-beam"></i> Happiness:</h5>
+                    <div class="progress">
+                        <div class="progress-bar happyness" style="width:50%"> 5/10</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="font-weight-bolder"><i class="fas fa-paw"></i> Pets:</h5>
+                    <button type="button" class="btn btn-secondary btn-lg mx-4  mx-4 mx-sm-5 mx-md-2 pets dog-toggle" id="dog" data-toggle="tooltip" data-placement="top" data-container="body" > <i class="fas fa-dog"></i></button>                   
+                    <button type="button" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 pets cat-toggle" data-toggle="tooltip" data-placement="top" id="cat" data-container="body"><i class="fas fa-cat"></i></button>                   
+                    <button type="button" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 pets disabled doubleCat-toggle" data-toggle="tooltip" data-placement="top" data-container="body" id="doubleCat"><i class="fas fa-cat"></i><i class="fas fa-cat"></i></button>
+                    <h5 class="font-weight-bolder" style="margin-top: 20px"><i class="fas fa-building"></i> Apartments:</h5>
+                    <button type="button" class="btn btn-secondary btn-lg mx-4 mx-sm-5 mx-md-2 apartments small-toggle" id="small" data-toggle="tooltip"  data-container="body" data-placement="top"><i class="fas fa-home fa"></i></button>  
+                    <button type="button" class="btn btn-secondary mx-4 mx-sm-5 mx-md-2 apartments medium-toggle" id="medium" data-toggle="tooltip" data-container="body"  data-placement="top"> <i class="fas fa-home fa-2x"></i></button>  
+                    <button type="button" class="btn btn-secondary btn-sm mx-4 mx-sm-5 mx-md-2 apartments big-toggle" id="big" data-toggle="tooltip"  data-container="body" data-placement="top"> <i class="fas fa-home fa-3x"></i></button>                    
+                </div>
+            </div>
+        </section>
+        
+        
+        <audio id="sound-btn-plus" src="./music/button-20.mp3" preload="auto"></audio>
+        <audio id="sound-btn-minus" src="./music/button-20.mp3" preload="auto"></audio>
+        <audio id="sound-btn-dog" src="./music/animals_dog_bark_004.mp3" preload="auto" ></audio>
+        <audio id="sound-btn-cat" src="./music/janmeow.mp3" preload="auto"></audio>
+        <!-- <audio id="sound-btn-house" src="music/button-20.mp3" preload="auto"></audio> -->
+        <!-- <audio id="sound-btn-lose" src="music/button-20.mp3" preload="auto"></audio> -->
+        <!-- <audio id="sound-btn-win" src="music/button-20.mp3" preload="auto"></audio> -->
+
+        <!-- Alertify -->
+            <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    
+        
+    </body>
+</html>

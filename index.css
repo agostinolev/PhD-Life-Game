@@ -1,0 +1,118 @@
+.progress{
+    background: #262626;
+    border-radius: 20px;
+    height: 27px;
+    border-top: 1px solid #000;
+    box-shadow: 0 5px 4px -6px #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+.progress .progress-bar{
+    border-radius: 20px;
+    position: relative;
+    animation: animate-positive 2s;
+}
+.progress .progress-bar:after{
+    content: "\f111";
+    font-family: fontawesome;
+    font-size: 10px;
+    color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: -1px;
+    right: 10px;
+}
+.progress .progress-value{
+    display: block;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    background:#191919;
+    position: absolute;
+    top: -40px;
+    right: -27px;
+}
+.progress .progress-value:after{
+    content: "";
+    border-top: 5px solid #191919;
+    border-left: 5px solid #191919;
+    border-bottom: 5px solid transparent ;
+    border-right: 5px solid transparent;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+}
+
+.btn {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1.rem;
+}
+
+
+.research {
+    background: linear-gradient(to right, #00b360 35%,#208008 68%);
+}
+.socialLife {
+    background: linear-gradient(to right, #5849e6 35%,#111a8f 68%);
+}
+.alcoholism {
+    background: linear-gradient(to right, #fd0404 35%,#960202 68%);
+}
+.energy {
+    background: linear-gradient(to right, #c7c94e 35%,#f0cd06 68%);
+}
+.happyness {
+    background: linear-gradient(to right, #f77fd9 35%,#800279 68%);
+}
+
+
+body{
+    background-color: #cccccc;
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+}
+h1 {
+    text-align:center;
+    display: inline;
+}
+h5 {
+    font-weight:700;
+}
+.table > tfoot {
+    border: 1.5px;
+}
+
+.btn span.icon {
+    background: url(imgs/disco-icon.jpg) no-repeat;
+    float: left;
+    width: 10px;
+    height: 40px;
+}
+
+.white{
+    background: rgb(255, 255, 255);
+}
+
+#save {
+    float: right;
+}
+#newGame {
+    float: right;
+    margin-top: 1px;
+}
+
+
+.tooltip-inner {
+    max-width: 10% !important;
+}
+
+
+audio {
+    display: none;
+}
+
+[id*='sound-btn'] {
+    display: none;
+}
